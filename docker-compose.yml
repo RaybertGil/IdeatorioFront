@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" # Expone el puerto 3000 del host al puerto 80 del contenedor
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Monta el archivo de configuración de NGINX
+    environment:
+      NODE_ENV: production
